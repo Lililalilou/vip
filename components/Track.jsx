@@ -1,12 +1,18 @@
 import React from 'react';
+import { connect} from 'react-redux';
+import { changeTrack } from '../actions';
 
-function Track(props) {
-  const { details } = props;
+const Track = (props) => {
+  const { details, changeTrack } = props;
   return (
-    <div>
+    <div onClick={() => changeTrack(details)}>
       {details.creator} - {details.title}
     </div>
   );
-}
+};
 
-export default Track;
+const mapDispatchToProps = dispatch => ({
+  changeTrack: (track) => dispatch(changeTrack(track))
+});
+
+export default connect(null, mapDispatchToProps)(Track);

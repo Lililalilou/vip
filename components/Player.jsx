@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 import Playlist from './Playlist';
+import Controller from './Controller';
+import Search from './Search';
 
 class Player extends React.Component {
   constructor(props) {
@@ -27,13 +29,14 @@ class Player extends React.Component {
         });
         this.setState({ list: newList });
       });
-    this.setState({ list: [] });
   }
 
   render() {
     const { list } = this.state;
     return (
       <div>
+        <Search />
+        <Controller />
         <Playlist playlist={list} />
       </div>
     );

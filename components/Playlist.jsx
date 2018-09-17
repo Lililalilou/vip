@@ -1,19 +1,41 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Track from './Track';
 
-function Playlist(props) {
-  const { playlist } = props;
+export const Playlist = (props) => {
+  const { playlist, search } = props;
   return (
     <div>
-      {playlist.map((track, id) => (
-        <Track details={track} key={id} />
-      ))}
+      {
+      /*
+      {search && ( */
+      }
+
+        <React.Fragment>
+          {playlist.forEach((track, search) => (
+            <Track details={track} />
+          ))}
+        </React.Fragment>
+      
+      {
+      /*
+      )} */
+      }
     </div>
   );
-}
+};
+
 Playlist.propTypes = {
   playlist: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
 };
+
+{
+  /*
+const mapStateToProps = state => ({
+  filter: state.filter,
+});
+*/
+}
 
 export default Playlist;
